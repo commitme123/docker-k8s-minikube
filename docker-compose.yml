@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   web:
     build: ./app
@@ -22,5 +20,22 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  # NEW: Prometheus Service
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  # NEW: Grafana Service
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin # Default password is admin
+
 volumes:
   postgres_data:
+  
