@@ -1,8 +1,12 @@
 from fastapi import FastAPI
 import os
 import psycopg2
+from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI()
+
+Instrumentator().instrument(app).expose(app) 
+
 
 @app.get("/")
 def read_root():

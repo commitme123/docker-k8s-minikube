@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 5s # Scrape metrics every 5 seconds
+
+scrape_configs:
+  - job_name: 'fastapi-app'
+    static_configs:
+      - targets: ['web:8000'] # Looks at the 'web' service on port 8000

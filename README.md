@@ -38,6 +38,20 @@ This repository demonstrates containerizing a Python (FastAPI) application and d
 *The web app successfully communicates with the PostgreSQL database.*
 ![DB Check](images/db-check.png)
 
+
+## Monitoring & Observability (Prometheus & Grafana)
+
+This project includes a full observability stack:
+- **Prometheus** scrapes the FastAPI `/metrics` endpoint every 5 seconds.
+- **Grafana** visualizes the metrics, allowing us to monitor SLIs (Service Level Indicators) such as request rate, error rate, and latency.
+
+### How to access:
+- Prometheus: `http://localhost:9090`
+- Grafana: `http://localhost:3001` (Login: admin/admin)
+
+![Grafana Dashboard](images/grafana-dashboard.png)
+
+
 ## What I Learned
 - Writing multi-stage Dockerfiles for Python applications.
 - Orchestrating multi-container apps with Docker Compose.
